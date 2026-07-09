@@ -44,9 +44,11 @@
         <!-- Pinned collage -->
         <div class="pin-card" style="position:absolute; width:220px; top:0; left:10%;">
           <span class="tape"></span>
-          <div class="art-thumb">
-            <img src="house.jpeg" alt="storefront digital painting">
-          </div>
+         <div class="art-thumb">
+    <a href="house.jpeg" class="lightbox">
+        <img src="house.jpeg" alt="Storefront digital painting">
+    </a>
+         </div>
           <div class="pin-title">Storefront</div>
           <div class="pin-meta">Digital · 2026</div>
         </div>
@@ -224,5 +226,9 @@
 </footer>
 
 <script src="js/script.js"></script>
+  <div id="lightbox" class="lightbox-overlay">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+</div>
 </body>
 </html>
