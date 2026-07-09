@@ -280,6 +280,17 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease;
   cursor: pointer;
 }
+.pin-card .art-thumb img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.pin-card .art-thumb a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .pin-card:nth-child(3n+1) { transform: rotate(-3deg); }
 .pin-card:nth-child(3n+2) { transform: rotate(2deg); }
 .pin-card:nth-child(3n)   { transform: rotate(-1.5deg); }
