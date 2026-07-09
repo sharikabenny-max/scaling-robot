@@ -4,6 +4,36 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+document.querySelectorAll(".lightbox").forEach(link => {
+
+    link.addEventListener("click", function(e){
+        e.preventDefault();
+
+        lightboxImg.src = this.href;
+        lightbox.classList.add("active");
+    });
+
+});
+
+lightbox.addEventListener("click", function(e){
+
+    if(e.target === lightbox || e.target.classList.contains("close")){
+        lightbox.classList.remove("active");
+    }
+
+});
+
+document.addEventListener("keydown", function(e){
+
+    if(e.key === "Escape"){
+        lightbox.classList.remove("active");
+    }
+
+});
+
   // ---- Mobile nav toggle ----
   const navToggle = document.querySelector('.nav-toggle');
   const navPill = document.querySelector('.nav-pill');
@@ -12,39 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = navPill.classList.toggle('open');
       navToggle.textContent = isOpen ? 'CLOSE' : 'MENU';
     });
-  }
-
-  // ---- Lightbox for Work gallery ----
-  const lightbox = document.getElementById('lightbox');
-  const lightboxInner = document.querySelector('.lightbox-inner');
-  document.querySelectorAll('[data-lightbox-trigger]').forEach(card => {
-    card.addEventListener('click', () => {
-      if (!lightbox) return;
-      const title = card.dataset.title || '';
-      const meta = card.dataset.meta || '';
-      const desc = card.dataset.desc || '';
-      const svg = card.querySelector('.art-thumb svg');
-      lightboxInner.innerHTML = `
-        <button class="lightbox-close" aria-label="Close">&times;</button>
-        <div class="art-thumb">${svg ? svg.outerHTML : ''}</div>
-        <span class="eyebrow">${meta}</span>
-        <h3 style="margin-bottom:8px;">${title}</h3>
-        <p style="margin:0;">${desc}</p>
-      `;
-      lightbox.classList.add('open');
-      lightboxInner.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-    });
-  });
-  if (lightbox) {
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
-  }
-  function closeLightbox() {
-    if (lightbox) lightbox.classList.remove('open');
   }
 
   // ---- Work page category filter ----
