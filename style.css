@@ -5,6 +5,53 @@
    Signature element: pinned "corkboard" cards (rotated + washi tape)
    ========================================================= */
 
+/* ---------- Opening Soon ---------- */
+
+.opening-soon-card{
+    max-width:520px;
+    margin:50px auto;
+    padding:45px;
+    text-align:center;
+    position:relative;
+}
+
+.notice-pin{
+    font-size:1.8rem;
+    margin-bottom:15px;
+}
+
+.notice{
+    font-family:"Plus Jakarta Sans",sans-serif;
+    color:var(--ink);
+}
+
+.notice-line{
+    width:120px;
+    height:2px;
+    background:var(--ink);
+    margin:0 auto 30px;
+    opacity:.25;
+}
+
+.notice h2{
+    font-family:"Space Mono",monospace;
+    font-size:1rem;
+    letter-spacing:2px;
+    margin-bottom:30px;
+}
+
+.notice p{
+    margin-bottom:28px;
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+.signature{
+    font-family:"Fraunces",serif;
+    font-size:1.2rem;
+    color:var(--lavender-dark);
+}
+
 .lightbox-overlay {
     position: fixed;
     inset: 0;
