@@ -92,4 +92,3 @@ document.addEventListener("DOMContentLoaded", () => {
     clearTimeout(window.__toastTimer);
     window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
   }
-});
