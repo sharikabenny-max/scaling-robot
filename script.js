@@ -2,36 +2,31 @@
 // Shared site behavior: nav toggle, lightbox, filters, forms
 // ============================================================
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Script loaded!");
 
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
 
-document.querySelectorAll(".lightbox-link").forEach(link => {
-
-  lightbox.addEventListener("click", function(e){
-    console.log("You clicked:", e.target);
-    
-        lightboxImg.src = this.href;
-        lightbox.classList.add("active");
+    document.querySelectorAll(".lightbox-link").forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            lightboxImg.src = link.href;
+            lightbox.classList.add("active");
+        });
     });
 
-});
+    lightbox.addEventListener("click", e => {
+        if (e.target === lightbox || e.target.classList.contains("close")) {
+            lightbox.classList.remove("active");
+        }
+    });
 
-lightbox.addEventListener("click", function(e){
-
-    if(e.target === lightbox || e.target.classList.contains("close")){
-        lightbox.classList.remove("active");
-    }
-
-});
-
-document.addEventListener("keydown", function(e){
-
-    if(e.key === "Escape"){
-        lightbox.classList.remove("active");
-    }
-
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") {
+            lightbox.classList.remove("active");
+        }
+    });
 });
 
   // ---- Mobile nav toggle ----
