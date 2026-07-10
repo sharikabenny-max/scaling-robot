@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
 
-document.querySelectorAll(".lightbox-link")
-  
+document.querySelectorAll(".lightbox-link").forEach(link => {
+
     link.addEventListener("click", function(e){
         e.preventDefault();
 
