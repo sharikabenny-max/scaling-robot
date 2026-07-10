@@ -3,92 +3,184 @@
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Script loaded!");
+
+    // ========================================================
+    // LIGHTBOX
+    // ========================================================
 
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
 
-    document.querySelectorAll(".lightbox-link").forEach(link => {
-        link.addEventListener("click", e => {
-            e.preventDefault();
-            lightboxImg.src = link.href;
-            lightbox.classList.add("active");
-        });
-    });
+    if (lightbox && lightboxImg) {
 
-    lightbox.addEventListener("click", e => {
-        if (e.target === lightbox || e.target.classList.contains("close")) {
+        document.querySelectorAll(".lightbox-link").forEach(link => {
+
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+                lightboxImg.src = this.href;
+                lightbox.classList.add("active");
+            });
+
+        });
+
+        function closeLightbox() {
             lightbox.classList.remove("active");
         }
-    });
 
-    document.addEventListener("keydown", e => {
-        if (e.key === "Escape") {
-            lightbox.classList.remove("active");
-        }
-    });
-});
+        lightbox.addEventListener("click", function (e) {
 
-  // ---- Mobile nav toggle ----
-  const navToggle = document.querySelector('.nav-toggle');
-  const navPill = document.querySelector('.nav-pill');
-  if (navToggle && navPill) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navPill.classList.toggle('open');
-      navToggle.textContent = isOpen ? 'CLOSE' : 'MENU';
-    });
-  }
+            // Close when clicking the dark background
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
 
-  // ---- Work page category filter ----
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const filterCards = document.querySelectorAll('[data-category]');
-  if (filterBtns.length) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const cat = btn.dataset.filter;
-        filterCards.forEach(card => {
-          if (cat === 'all' || card.dataset.category === cat) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
+            // Close when clicking the X
+            if (e.target.classList.contains("close")) {
+                closeLightbox();
+            }
+
         });
-      });
-    });
-  }
 
-  // ---- Shop: "Inquire" buttons pre-fill the inquiry form ----
-  const inquiryField = document.getElementById('inquiry-piece');
-  document.querySelectorAll('[data-inquire]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (inquiryField) {
-        inquiryField.value = btn.dataset.inquire;
-        document.getElementById('inquiry-form-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        inquiryField.closest('form')?.querySelector('input[name="name"]')?.focus({ preventScroll: true });
-      }
-      showToast(`Added "${btn.dataset.inquire}" to your inquiry`);
-    });
-  });
+        document.addEventListener("keydown", function (e) {
 
-  // ---- Form submission feedback (static site: no backend) ----
-  document.querySelectorAll('form[data-static-form]').forEach(form => {
-    form.addEventListener('submit', (e) => {
-      // mailto forms still navigate normally; just show a friendly confirmation first
-      showToast('Opening your email app to send this...');
-    });
-  });
+            if (e.key === "Escape") {
+                closeLightbox();
+            }
 
-  function showToast(message) {
-    let toast = document.querySelector('.toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'toast';
-      document.body.appendChild(toast);
+        });
+
     }
-    toast.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(window.__toastTimer);
-    window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
-  }
+
+
+    // ========================================================
+    // MOBILE MENU
+    // ========================================================
+
+    const navToggle = document.querySelector(".nav-toggle");
+    const navPill = document.querySelector(".nav-pill");
+
+    if (navToggle && navPill) {
+
+        navToggle.addEventListener("click", () => {
+
+            const isOpen = navPill.classList.toggle("open");
+            navToggle.textContent = isOpen ? "CLOSE" : "MENU";
+
+        });
+
+    }
+
+
+    // ========================================================
+    // WORK PAGE FILTERS
+    // ========================================================
+
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const filterCards = document.querySelectorAll("[data-category]");
+
+    if (filterBtns.length) {
+
+        filterBtns.forEach(btn => {
+
+            btn.addEventListener("click", () => {
+
+                filterBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                const category = btn.dataset.filter;
+
+                filterCards.forEach(card => {
+
+                    if (
+                        category === "all" ||
+                        card.dataset.category === category
+                    ) {
+                        card.classList.remove("hidden");
+                    } else {
+                        card.classList.add("hidden");
+                    }
+
+                });
+
+            });
+
+        });
+
+    }
+
+
+    // ========================================================
+    // SHOP INQUIRY BUTTONS
+    // ========================================================
+
+    const inquiryField = document.getElementById("inquiry-piece");
+
+    document.querySelectorAll("[data-inquire]").forEach(btn => {
+
+        btn.addEventListener("click", () => {
+
+            if (inquiryField) {
+
+                inquiryField.value = btn.dataset.inquire;
+
+                document
+                    .getElementById("inquiry-form-section")
+                    ?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+            }
+
+            showToast(`Added "${btn.dataset.inquire}" to your inquiry`);
+
+        });
+
+    });
+
+
+    // ========================================================
+    // FORM FEEDBACK
+    // ========================================================
+
+    document.querySelectorAll("form[data-static-form]").forEach(form => {
+
+        form.addEventListener("submit", () => {
+
+            showToast("Opening your email app to send this...");
+
+        });
+
+    });
+
+
+    // ========================================================
+    // TOAST MESSAGE
+    // ========================================================
+
+    function showToast(message) {
+
+        let toast = document.querySelector(".toast");
+
+        if (!toast) {
+
+            toast = document.createElement("div");
+            toast.className = "toast";
+            document.body.appendChild(toast);
+
+        }
+
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        clearTimeout(window.__toastTimer);
+
+        window.__toastTimer = setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2600);
+
+    }
+
+});
