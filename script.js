@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.querySelectorAll(".lightbox-link").forEach(link => {
 
-    link.addEventListener("click", function(e){
-        e.preventDefault();
-
+  lightbox.addEventListener("click", function(e){
+    console.log("You clicked:", e.target);
+    
         lightboxImg.src = this.href;
         lightbox.classList.add("active");
     });
