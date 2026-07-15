@@ -109,7 +109,9 @@
       <div class="pin-card">
         <span class="tape"></span>
         <div class="art-thumb">
-         <img src="images/dune-light.jpg" alt="Dune Light, gouache painting">
+         <a href="images/dune-light.jpg" class="lightbox-link">
+    <img src="images/dune-light.jpg" alt="Dune Light, gouache painting">
+         </a>
         </div>
         <div class="pin-title">Everything, Eventually</div>
         <div class="pin-meta">Client · Digital</div>
@@ -117,7 +119,9 @@
       <div class="pin-card">
         <span class="tape"></span>
         <div class="art-thumb">
-         <img src="images/dune-light.jpg" alt="Dune Light, gouache painting">
+         <a href="images/dune-light.jpg" class="lightbox-link">
+    <img src="images/dune-light.jpg" alt="Dune Light, gouache painting">
+         </a>
         </div>
         <div class="pin-title">Field Notes</div>
         <div class="pin-meta">Personal · Illustration</div>
@@ -212,9 +216,11 @@
 </footer>
 
 <script src="script.js"></script>
-  <div id="lightbox" class="lightbox-overlay">
-    <span class="close">&times;</span>
-    <img id="lightbox-img" src="" alt="">
+ <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+        <button class="lightbox-close">&times;</button>
+        <img id="lightbox-img" src="" alt="Artwork">
+    </div>
 </div>
 </body>
 </html>
