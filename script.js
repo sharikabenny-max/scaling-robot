@@ -35,10 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // Close when clicking the X
-            if (e.target.classList.contains("close")) {
-                closeLightbox();
-            }
-
+         if (e.target.classList.contains("lightbox-close")) {
+    closeLightbox();
+         }
         });
 
         document.addEventListener("keydown", function (e) {
