@@ -18,13 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener("click", function (e) {
                 e.preventDefault();
                 lightboxImg.src = this.href;
-                lightbox.classList.add("active");
+                lightbox.classList.add("open");
             });
 
         });
 
         function closeLightbox() {
-            lightbox.classList.remove("active");
+            lightbox.classList.remove("open");
         }
 
         lightbox.addEventListener("click", function (e) {
