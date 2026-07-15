@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             link.addEventListener("click", function (e) {
                 e.preventDefault();
+                console.log("clicked");
                 lightboxImg.src = this.href;
                 lightbox.classList.add("open");
             });
