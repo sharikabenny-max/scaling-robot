@@ -183,4 +183,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        const response = await fetch(contactForm.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if (response.ok) {
+
+            contactForm.reset();
+
+            contactForm.style.display = "none";
+
+            document.getElementById("success-message").style.display = "block";
+
+        } else {
+
+            alert("Sorry, something went wrong. Please try again.");
+        }
+
+    });
+
+}
+
 });
