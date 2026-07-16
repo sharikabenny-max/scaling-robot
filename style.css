@@ -565,3 +565,46 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     font-weight: 600;
     line-height: 1.5;
 }
+
+.lightbox-prev,
+.lightbox-next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    color:#222;
+    font-size:28px;
+    cursor:pointer;
+    transition:.25s;
+    z-index:10;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover{
+    background:white;
+    transform:translateY(-50%) scale(1.08);
+}
+
+.lightbox-prev{
+    left:-70px;
+}
+
+.lightbox-next{
+    right:-70px;
+}
+
+@media(max-width:900px){
+
+    .lightbox-prev{
+        left:12px;
+    }
+
+    .lightbox-next{
+        right:12px;
+    }
+
+}
