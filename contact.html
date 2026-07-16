@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Juniper Cole</title>
+<meta name="description" content="Get in touch with illustrator and visual artist Juniper Cole about freelance work, full-time roles, or commissions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav-pill wrap" style="max-width:1180px;">
+    <a href="index.html" class="logo">Juniper<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Let's talk</a>
+    <button class="nav-toggle">MENU</button>
+  </nav>
+</header>
+
+<section style="padding-bottom:20px;">
+  <div class="blob-field"><span class="blob b1"></span><span class="blob b3"></span></div>
+  <div class="wrap" style="position:relative; z-index:1;">
+    <div class="grid-2">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h1>Let's make<br>something together.</h1>
+        <p style="font-size:1.1rem; max-width:440px;">Whether it's a freelance project, a full-time role, or just a question about a piece — I'd love to hear from you. I usually reply within 2 business days.</p>
+
+        <div style="margin-top:32px;">
+          <h4 style="font-family:var(--font-label); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); margin-bottom:14px;">Find me elsewhere</h4>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="#" class="btn btn-secondary">Instagram</a>
+            <a href="#" class="btn btn-secondary">LinkedIn</a>
+            <a href="#" class="btn btn-secondary">Download résumé</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pin-card" style="max-width:460px;">
+        <span class="tape"></span>
+        <form data-static-form action="mailto:hello@junipercole.art" method="post" enctype="text/plain">
+          <div class="form-field">
+            <label for="c-name">Your name</label>
+            <input type="text" id="c-name" name="name" placeholder="Jordan Lee" required>
+          </div>
+          <div class="form-field">
+            <label for="c-email">Your email</label>
+            <input type="email" id="c-email" name="email" placeholder="jordan@email.com" required>
+          </div>
+          <div class="form-field">
+            <label for="c-reason">This is about</label>
+            <select id="c-reason" name="reason">
+              <option>Freelance project</option>
+              <option>Full-time role</option>
+              <option>A piece from the shop</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="c-message">Message</label>
+            <textarea id="c-message" name="message" placeholder="Tell me a bit about what you have in mind..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="index.html" class="logo">Juniper<span class="dot">.</span></a>
+        <p style="color:var(--ink-faint); max-width:280px; margin-top:12px;">Illustration and painting, made with warmth and a little bit of structure.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Site</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="work.html">Work</a>
+          <a href="shop.html">Shop</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="foot-col">
+          <h4>Elsewhere</h4>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Juniper Cole</span>
+      <span>Made with care in a soft color scheme</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
