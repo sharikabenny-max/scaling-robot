@@ -9,27 +9,81 @@ document.addEventListener("DOMContentLoaded", () => {
     // ========================================================
 
     const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
+const lightboxImg = document.getElementById("lightbox-img");
 
-    if (lightbox && lightboxImg) {
+const links = [...document.querySelectorAll(".lightbox-link")];
 
-        document.querySelectorAll(".lightbox-link").forEach(link => {
+let currentIndex = 0;
 
-            link.addEventListener("click", function (e) {
-                e.preventDefault();
-                console.log("clicked");
-                lightboxImg.src = this.href;
-                lightbox.classList.add("open");
-            });
+function showImage(index){
 
-        });
+    currentIndex = index;
 
-        function closeLightbox() {
-            lightbox.classList.remove("open");
-        }
+    lightboxImg.src = links[index].href;
 
-        lightbox.addEventListener("click", function (e) {
+    lightbox.classList.add("show");
 
+}
+
+links.forEach((link,index)=>{
+
+    link.addEventListener("click",(e)=>{
+
+        e.preventDefault();
+
+        showImage(index);
+
+    });
+
+});
+
+    document.querySelector(".lightbox-next").addEventListener("click",()=>{
+
+    currentIndex++;
+
+    if(currentIndex >= links.length){
+        currentIndex = 0;
+    }
+
+    showImage(currentIndex);
+
+});
+
+document.querySelector(".lightbox-prev").addEventListener("click",()=>{
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+        currentIndex = links.length - 1;
+    }
+
+    showImage(currentIndex);
+
+});
+
+    document.addEventListener("keydown",(e)=>{
+
+    if(!lightbox.classList.contains("show")) return;
+
+    if(e.key === "ArrowRight"){
+
+        document.querySelector(".lightbox-next").click();
+
+    }
+
+    if(e.key === "ArrowLeft"){
+
+        document.querySelector(".lightbox-prev").click();
+
+    }
+
+    if(e.key === "Escape"){
+
+        lightbox.classList.remove("show");
+
+    }
+
+});
             // Close when clicking the dark background
             if (e.target === lightbox) {
                 closeLightbox();
