@@ -205,8 +205,7 @@ if (contactForm) {
 
             contactForm.reset();
 
-            contactForm.style.display = "none";
-
+            contactForm.reset();
             document.getElementById("success-message").style.display = "block";
 
         } else {
@@ -214,8 +213,11 @@ if (contactForm) {
             alert("Sorry, something went wrong. Please try again.");
         }
 
+        
+
     });
 
 }
+    
 
 });
