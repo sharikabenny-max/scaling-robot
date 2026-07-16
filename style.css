@@ -554,3 +554,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   z-index: 300;
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+
+.success-message {
+    display: none;
+    margin-top: 20px;
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: #e8f8ee;
+    color: #20643b;
+    font-weight: 600;
+    line-height: 1.5;
+}
