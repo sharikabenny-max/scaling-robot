@@ -41,17 +41,14 @@ links.forEach((link,index)=>{
 
 });
 
-    const nextBtn = document.querySelector(".lightbox-next");
+const nextBtn = document.querySelector(".lightbox-next");
 const prevBtn = document.querySelector(".lightbox-prev");
 
-console.log(nextBtn);
-console.log(prevBtn);
-console.log(lightbox);
-console.log(lightboxImg);
+nextBtn.addEventListener("click", () => {
 
     currentIndex++;
 
-    if(currentIndex >= links.length){
+    if (currentIndex >= links.length) {
         currentIndex = 0;
     }
 
@@ -59,7 +56,7 @@ console.log(lightboxImg);
 
 });
 
-document.querySelector(".lightbox-prev").addEventListener("click",()=>{
+prevBtn.addEventListener("click", () => {
 
     currentIndex--;
 
