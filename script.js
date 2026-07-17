@@ -14,14 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
-const imageWrapper = document.querySelector(".lightbox-image");
+if (lightbox && lightboxImg && imageWrapper) {
 
-const panzoom = Panzoom(imageWrapper, {
-    maxScale: 5,
-    contain: "outside"
+    const panzoom = Panzoom(imageWrapper, {
+        maxScale: 5,
+        contain: "outside"
+    });
+
+    ...
+}
 });
-    lightbox.parentElement.addEventListener("wheel", panzoom.zoomWithWheel);
-
+    imageWrapper.addEventListener("wheel", panzoom.zoomWithWheel);
 if (lightbox && lightboxImg) {
 
     const links = [...document.querySelectorAll(".lightbox-link")];
