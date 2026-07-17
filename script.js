@@ -22,7 +22,11 @@ if (lightbox && lightboxImg && imageWrapper) {
         contain: "outside"
     });
 
-    ...
+    imageWrapper.addEventListener(
+        "wheel",
+        panzoom.zoomWithWheel
+    );
+
 }
 });
     imageWrapper.addEventListener("wheel", panzoom.zoomWithWheel);
