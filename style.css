@@ -404,9 +404,6 @@ footer .foot-bottom {
 /* =========================================================
    LIGHTBOX
    ========================================================= */
-/* =========================================================
-   LIGHTBOX
-   ========================================================= */
 
 .lightbox {
     position: fixed;
@@ -426,31 +423,36 @@ footer .foot-bottom {
 
 .lightbox-inner {
     position: relative;
-    background: #fff;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background: white;
     padding: 18px;
     border-radius: 22px;
     box-shadow: 0 25px 60px rgba(0,0,0,.35);
-    max-width: min(92vw, 1200px);
-    max-height: 92vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: fit-content;
+    height: fit-content;
 }
 
 #lightbox-img {
     display: block;
-    max-width: 100%;
-    max-height: calc(92vh - 36px);
+    max-width: min(90vw, 1000px);
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+
     border-radius: 14px;
 }
 
 /* Close button */
 
 .lightbox-close {
-    position: absolute;
-    top: -16px;
-    right: -16px;
+    top: -20px;
+    right: -20px;
+}
 
     width: 42px;
     height: 42px;
