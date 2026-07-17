@@ -405,6 +405,14 @@ footer .foot-bottom {
    LIGHTBOX
    ========================================================= */
 
+#lightbox-img {
+    cursor: grab;
+}
+
+#lightbox-img:active {
+    cursor: grabbing;
+}
+
 .lightbox {
     position: fixed;
     inset: 0;
