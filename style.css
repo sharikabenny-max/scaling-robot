@@ -404,9 +404,6 @@ footer .foot-bottom {
 /* =========================================================
    LIGHTBOX
    ========================================================= */
-/* =========================================================
-   LIGHTBOX
-   ========================================================= */
 
 .lightbox{
     position:fixed;
@@ -420,7 +417,7 @@ footer .foot-bottom {
     padding:40px;
 }
 
-.lightbox.open{
+.lightbox.show{
     display:flex;
 }
 
@@ -564,6 +561,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     color: #20643b;
     font-weight: 600;
     line-height: 1.5;
+}
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(6px);
+    z-index:9999;
+    padding:40px;
 }
 
 .lightbox-prev,
