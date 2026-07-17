@@ -14,9 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
-const panzoom = Panzoom(lightboxImg, {
+const imageWrapper = document.querySelector(".lightbox-image");
+
+const panzoom = Panzoom(imageWrapper, {
     maxScale: 5,
-    minScale: 1,
     contain: "outside"
 });
     lightbox.parentElement.addEventListener("wheel", panzoom.zoomWithWheel);
