@@ -8,99 +8,86 @@ document.addEventListener("DOMContentLoaded", () => {
     // LIGHTBOX
     // ========================================================
 
-    
+    // ========================================================
+// LIGHTBOX
+// ========================================================
 
-    const lightbox = document.getElementById("lightbox");
+const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 
-    if (lightbox) {
+if (lightbox && lightboxImg) {
 
-const links = [...document.querySelectorAll(".lightbox-link")];
+    const links = [...document.querySelectorAll(".lightbox-link")];
+    const nextBtn = document.querySelector(".lightbox-next");
+    const prevBtn = document.querySelector(".lightbox-prev");
+    const closeBtn = document.querySelector(".lightbox-close");
 
-let currentIndex = 0;
+    let currentIndex = 0;
 
-function showImage(index){
+    function showImage(index) {
+        currentIndex = index;
+        lightboxImg.src = links[index].href;
+        lightbox.classList.add("show");
+    }
 
-    currentIndex = index;
+    function closeLightbox() {
+        lightbox.classList.remove("show");
+    }
 
-    lightboxImg.src = links[index].href;
+    // Open lightbox
+    links.forEach((link, index) => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            showImage(index);
+        });
+    });
 
-    lightbox.classList.add("show");
+    // Next image
+    nextBtn?.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % links.length;
+        showImage(currentIndex);
+    });
 
-}
+    // Previous image
+    prevBtn?.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + links.length) % links.length;
+        showImage(currentIndex);
+    });
 
-links.forEach((link,index)=>{
+    // Close button
+    closeBtn?.addEventListener("click", closeLightbox);
 
-    link.addEventListener("click",(e)=>{
+    // Click outside image
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
 
-        e.preventDefault();
+    // Keyboard controls
+    document.addEventListener("keydown", (e) => {
 
-        showImage(index);
+        if (!lightbox.classList.contains("show")) return;
+
+        switch (e.key) {
+            case "ArrowRight":
+                nextBtn?.click();
+                break;
+
+            case "ArrowLeft":
+                prevBtn?.click();
+                break;
+
+            case "Escape":
+                closeLightbox();
+                break;
+        }
 
     });
 
-});
-
-const nextBtn = document.querySelector(".lightbox-next");
-const prevBtn = document.querySelector(".lightbox-prev");
-
-nextBtn.addEventListener("click", () => {
-
-    currentIndex++;
-
-    if (currentIndex >= links.length) {
-        currentIndex = 0;
-    }
-
-    showImage(currentIndex);
-
-});
-
-prevBtn.addEventListener("click", () => {
-
-    currentIndex--;
-
-    if(currentIndex < 0){
-        currentIndex = links.length - 1;
-    }
-
-    showImage(currentIndex);
-
-});
-
-  document.addEventListener("keydown", (e) => {
-
-    if (!lightbox.classList.contains("show")) return;
-
-    if (e.key === "ArrowRight") {
-        document.querySelector(".lightbox-next").click();
-    }
-
-    if (e.key === "ArrowLeft") {
-        document.querySelector(".lightbox-prev").click();
-    }
-
-    if (e.key === "Escape") {
-        closeLightbox();
-    }
-
-});
-    function closeLightbox() {
-    lightbox.classList.remove("show");
 }
 
-lightbox.addEventListener("click", (e) => {
-    if (
-        e.target === lightbox ||
-        e.target.classList.contains("lightbox-close")
-    ) {
-        closeLightbox();
-    }
-});
-
-}
-        
-
+  
     // ========================================================
     // MOBILE MENU
     // ========================================================
