@@ -41,7 +41,13 @@ links.forEach((link,index)=>{
 
 });
 
-    document.querySelector(".lightbox-next").addEventListener("click",()=>{
+    const nextBtn = document.querySelector(".lightbox-next");
+const prevBtn = document.querySelector(".lightbox-prev");
+
+console.log(nextBtn);
+console.log(prevBtn);
+console.log(lightbox);
+console.log(lightboxImg);
 
     currentIndex++;
 
