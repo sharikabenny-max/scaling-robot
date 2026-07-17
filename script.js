@@ -8,13 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // LIGHTBOX
     // ========================================================
 
-    // ========================================================
-// LIGHTBOX
-// ========================================================
-
-// ========================================================
-// LIGHTBOX
-// ========================================================
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
@@ -28,10 +21,10 @@ if (lightbox && lightboxImg && imageWrapper) {
     const prevBtn = document.querySelector(".lightbox-prev");
     const closeBtn = document.querySelector(".lightbox-close");
 
-    const panzoom = Panzoom(lightboxImg, {
-        maxScale: 5,
-        contain: "outside"
-    });
+   const panzoom = Panzoom(lightboxImg, {
+    maxScale: 5,
+    contain: "outside"
+});
 
     imageWrapper.addEventListener(
         "wheel",
