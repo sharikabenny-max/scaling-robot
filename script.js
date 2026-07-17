@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
+const imageWrapper = document.querySelector(".lightbox-image");
 if (lightbox && lightboxImg && imageWrapper) {
 
     const panzoom = Panzoom(imageWrapper, {
