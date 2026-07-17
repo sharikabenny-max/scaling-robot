@@ -405,18 +405,6 @@ footer .foot-bottom {
    LIGHTBOX
    ========================================================= */
 
-.lightbox{
-    position:fixed;
-    inset:0;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(6px);
-    z-index:9999;
-    padding:40px;
-}
-
 .lightbox.show{
     display:flex;
 }
@@ -425,6 +413,10 @@ footer .foot-bottom {
     position:relative;
     max-width:90vw;
     max-height:90vh;
+
+    background:white;
+    padding:20px;
+    border-radius:24px;
 }
 
 #lightbox-img{
