@@ -79,31 +79,24 @@ document.querySelector(".lightbox-prev").addEventListener("click",()=>{
 
     if(e.key === "Escape"){
 
-        lightbox.classList.remove("show");
-
-    }
+      if (e.key === "Escape") {
+    closeLightbox();
+}
 
 });
-            // Close when clicking the dark background
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
 
-            // Close when clicking the X
-         if (e.target.classList.contains("lightbox-close")) {
-    closeLightbox();
-         }
-        });
+    function closeLightbox() {
+    lightbox.classList.remove("show");
+}
 
-        document.addEventListener("keydown", function (e) {
-
-            if (e.key === "Escape") {
-                closeLightbox();
-            }
-
-        });
-
+lightbox.addEventListener("click", (e) => {
+    if (
+        e.target === lightbox ||
+        e.target.classList.contains("lightbox-close")
+    ) {
+        closeLightbox();
     }
+});
 
 
     // ========================================================
@@ -259,7 +252,6 @@ if (contactForm) {
 
             contactForm.reset();
 
-            contactForm.reset();
             document.getElementById("success-message").style.display = "block";
 
         } else {
