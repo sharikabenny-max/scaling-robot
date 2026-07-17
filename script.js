@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // LIGHTBOX
     // ========================================================
 
+    if (lightbox) {
+
     const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 
@@ -61,26 +63,21 @@ document.querySelector(".lightbox-prev").addEventListener("click",()=>{
 
 });
 
-    document.addEventListener("keydown",(e)=>{
+   document.addEventListener("keydown", (e) => {
 
-    if(!lightbox.classList.contains("show")) return;
+    if (!lightbox.classList.contains("show")) return;
 
-    if(e.key === "ArrowRight"){
-
+    if (e.key === "ArrowRight") {
         document.querySelector(".lightbox-next").click();
-
     }
 
-    if(e.key === "ArrowLeft"){
-
+    if (e.key === "ArrowLeft") {
         document.querySelector(".lightbox-prev").click();
-
     }
 
-    if(e.key === "Escape"){
-
-      if (e.key === "Escape") {
-    closeLightbox();
+    if (e.key === "Escape") {
+        closeLightbox();
+    }
 }
 
 });
