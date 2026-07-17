@@ -95,6 +95,8 @@ lightbox.addEventListener("click", (e) => {
     }
 });
 
+}
+        
 
     // ========================================================
     // MOBILE MENU
