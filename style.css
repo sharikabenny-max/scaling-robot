@@ -406,6 +406,11 @@ footer .foot-bottom {
    ========================================================= */
 
 #lightbox-img {
+    position: relative;
+    z-index: 1;
+}
+
+#lightbox-img {
     cursor: grab;
 }
 
