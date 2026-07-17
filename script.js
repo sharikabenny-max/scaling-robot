@@ -14,6 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
+const panzoom = Panzoom(lightboxImg, {
+    maxScale: 5,
+    minScale: 1,
+    contain: "outside"
+});
+    lightbox.parentElement.addEventListener("wheel", panzoom.zoomWithWheel);
 
 if (lightbox && lightboxImg) {
 
@@ -27,11 +33,13 @@ if (lightbox && lightboxImg) {
     function showImage(index) {
         currentIndex = index;
         lightboxImg.src = links[index].href;
+        panzoom.reset();
         lightbox.classList.add("show");
     }
 
     function closeLightbox() {
         lightbox.classList.remove("show");
+        panzoom.reset();
     }
 
     // Open lightbox
