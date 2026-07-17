@@ -12,12 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
 // LIGHTBOX
 // ========================================================
 
+// ========================================================
+// LIGHTBOX
+// ========================================================
+
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const imageWrapper = document.querySelector(".lightbox-image");
+
 if (lightbox && lightboxImg && imageWrapper) {
 
-    const panzoom = Panzoom(imageWrapper, {
+    const links = [...document.querySelectorAll(".lightbox-link")];
+
+    const nextBtn = document.querySelector(".lightbox-next");
+    const prevBtn = document.querySelector(".lightbox-prev");
+    const closeBtn = document.querySelector(".lightbox-close");
+
+    const panzoom = Panzoom(lightboxImg, {
         maxScale: 5,
         contain: "outside"
     });
@@ -27,83 +38,91 @@ if (lightbox && lightboxImg && imageWrapper) {
         panzoom.zoomWithWheel
     );
 
-}
-});
-    imageWrapper.addEventListener("wheel", panzoom.zoomWithWheel);
-if (lightbox && lightboxImg) {
-
-    const links = [...document.querySelectorAll(".lightbox-link")];
-    const nextBtn = document.querySelector(".lightbox-next");
-    const prevBtn = document.querySelector(".lightbox-prev");
-    const closeBtn = document.querySelector(".lightbox-close");
-
     let currentIndex = 0;
 
     function showImage(index) {
+
         currentIndex = index;
+
         lightboxImg.src = links[index].href;
-        panzoom.reset();
+
         lightbox.classList.add("show");
+
+        panzoom.reset();
+
     }
 
     function closeLightbox() {
+
         lightbox.classList.remove("show");
+
         panzoom.reset();
+
     }
 
-    // Open lightbox
     links.forEach((link, index) => {
+
         link.addEventListener("click", (e) => {
+
             e.preventDefault();
+
             showImage(index);
+
         });
+
     });
 
-    // Next image
-    nextBtn?.addEventListener("click", () => {
+    nextBtn.addEventListener("click", () => {
+
         currentIndex = (currentIndex + 1) % links.length;
+
         showImage(currentIndex);
+
     });
 
-    // Previous image
-    prevBtn?.addEventListener("click", () => {
+    prevBtn.addEventListener("click", () => {
+
         currentIndex = (currentIndex - 1 + links.length) % links.length;
+
         showImage(currentIndex);
+
     });
 
-    // Close button
-    closeBtn?.addEventListener("click", closeLightbox);
+    closeBtn.addEventListener("click", closeLightbox);
 
-    // Click outside image
     lightbox.addEventListener("click", (e) => {
+
         if (e.target === lightbox) {
+
             closeLightbox();
+
         }
+
     });
 
-    // Keyboard controls
     document.addEventListener("keydown", (e) => {
 
         if (!lightbox.classList.contains("show")) return;
 
         switch (e.key) {
+
             case "ArrowRight":
-                nextBtn?.click();
+                nextBtn.click();
                 break;
 
             case "ArrowLeft":
-                prevBtn?.click();
+                prevBtn.click();
                 break;
 
             case "Escape":
                 closeLightbox();
                 break;
+
         }
 
     });
 
 }
-
   
     // ========================================================
     // MOBILE MENU
