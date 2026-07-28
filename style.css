@@ -671,32 +671,30 @@ margin-top:50px;
 }
 
 .process-card{
+    width:340px;
+    aspect-ratio:1 / 1;
 
-max-width:300px;
-padding:36px 28px;
+    padding:32px;
 
-text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 
-transition:.25s ease;
+    text-align:left;
 
+    transition:.25s ease;
 }
 
 .process-card:nth-child(1){
+    transform:rotate(-0.8deg);
+}
 
-transform:rotate(-2deg);
-
+.process-card:nth-child(2){
+    transform:rotate(0.6deg);
 }
 
 .process-card:nth-child(3){
-
-transform:rotate(1.5deg);
-
-}
-
-.process-card:nth-child(5){
-
-transform:rotate(-1deg);
-
+    transform:rotate(-0.5deg);
 }
 
 .process-card:hover{
@@ -706,11 +704,11 @@ transform:translateY(-8px) rotate(0deg);
 }
 
 .process-number{
-
-font-family:var(--display-font);
+    font-family:var(--font-display);    
+}
 font-size:3rem;
 
-color:var(--accent);
+color:var(--lavender-deep);
 
 margin-bottom:12px;
 
