@@ -470,11 +470,8 @@ footer .foot-bottom {
 }
 
 .lightbox-sidebar{
-
-    width:320px;
-
-    flex-shrink:0;
-
+    width:100%;
+    max-width:720px;
 }
 
 #lightbox-title{
