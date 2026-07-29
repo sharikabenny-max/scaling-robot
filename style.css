@@ -446,17 +446,15 @@ footer .foot-bottom {
     width:100%;
     display:flex;
     justify-content:center;
+    align-items:center;
 }
 
 #lightbox-img{
     display:block;
-
-    width:auto;
-
     max-width:100%;
-
     max-height:68vh;
-
+    width:100%;
+    height:auto;
     object-fit:contain;
 }
 
