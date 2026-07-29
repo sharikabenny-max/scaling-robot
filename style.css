@@ -442,7 +442,7 @@ footer .foot-bottom {
     max-width:90vw;
     max-height:90vh;
 
-    overflow:auto;
+    overflow:visible;
 
     box-shadow:0 25px 60px rgba(0,0,0,.35);
 
