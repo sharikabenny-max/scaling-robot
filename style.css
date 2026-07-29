@@ -517,7 +517,7 @@ footer .foot-bottom {
 
     overflow-y: auto;
 
-    background: #faf7f2;
+    background: var(--cream);
 }
 
 .lightbox-sidebar h3 {
