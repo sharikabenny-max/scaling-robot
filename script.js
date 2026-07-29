@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const imageWrapper = document.querySelector(".lightbox-image");
+const lightboxTitle = document.getElementById("lightbox-title");
+const lightboxMeta = document.getElementById("lightbox-meta");
+const lightboxDesc = document.getElementById("lightbox-desc");
+const lightboxPdf = document.getElementById("lightbox-pdf");
 
 if (lightbox && lightboxImg && imageWrapper) {
 
@@ -41,6 +45,7 @@ if (lightbox && lightboxImg && imageWrapper) {
     const card = link.closest(".pin-card");
 
     lightboxImg.src = link.href;
+    lightboxImg.alt = card.dataset.title || "Artwork";
 
     // Caption
     lightboxTitle.textContent = card.dataset.title || "";
@@ -61,12 +66,13 @@ if (lightbox && lightboxImg && imageWrapper) {
 }
     function closeLightbox() {
 
-        lightbox.classList.remove("show");
+    lightbox.classList.remove("show");
 
-        panzoom.reset();
+    lightboxPdf.style.display = "none";
 
-    }
+    panzoom.reset();
 
+}
     links.forEach((link, index) => {
 
         link.addEventListener("click", (e) => {
