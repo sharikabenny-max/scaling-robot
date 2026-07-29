@@ -405,10 +405,6 @@ footer .foot-bottom {
    LIGHTBOX
    ========================================================= */
 
-/* ===========================
-   LIGHTBOX
-=========================== */
-
 .lightbox{
 
     position:fixed;
@@ -460,20 +456,13 @@ footer .foot-bottom {
 
 }
 
-#lightbox-img{
-
-    display:block;
-
-    max-width:85vw;
-    max-height:70vh;
-
-    width:auto;
-    height:auto;
-
-    border-radius:14px;
-
-    cursor:grab;
-
+#lightbox-img {
+    display: block;
+    max-width: 100%;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 #lightbox-img:active{
@@ -554,7 +543,7 @@ footer .foot-bottom {
 
     cursor:pointer;
 
-    z-index:20;
+    z-index:100;
 
 }
 
@@ -577,6 +566,8 @@ footer .foot-bottom {
     font-size:28px;
 
     cursor:pointer;
+
+    z-index:100;
 
 }
 
