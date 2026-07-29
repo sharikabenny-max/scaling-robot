@@ -411,7 +411,7 @@ footer .foot-bottom {
     display:none;
     justify-content:center;
     align-items:center;
-    padding:40px;
+    padding:50px;
     background:rgba(0,0,0,.75);
     backdrop-filter:blur(6px);
     z-index:9999;
@@ -430,7 +430,7 @@ footer .foot-bottom {
     background:white;
     border-radius:28px;
 
-    padding:40px;
+    padding:50px;
 
     display:flex;
     flex-direction:column;
@@ -450,7 +450,7 @@ footer .foot-bottom {
 }
 
 #lightbox-img{
-    max-width:100%;
+    max-width:auto;
     max-height:65vh;
 
     width:auto;
