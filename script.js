@@ -35,16 +35,30 @@ if (lightbox && lightboxImg && imageWrapper) {
 
     function showImage(index) {
 
-        currentIndex = index;
+    currentIndex = index;
 
-        lightboxImg.src = links[index].href;
+    const link = links[index];
+    const card = link.closest(".pin-card");
 
-        lightbox.classList.add("show");
+    lightboxImg.src = link.href;
 
-        panzoom.reset();
+    // Caption
+    lightboxTitle.textContent = card.dataset.title || "";
+    lightboxMeta.textContent = card.dataset.meta || "";
+    lightboxDesc.textContent = card.dataset.desc || "";
 
+    // PDF button
+    if (card.dataset.pdf) {
+        lightboxPdf.href = card.dataset.pdf;
+        lightboxPdf.style.display = "inline-flex";
+    } else {
+        lightboxPdf.style.display = "none";
     }
 
+    lightbox.classList.add("show");
+
+    panzoom.reset();
+}
     function closeLightbox() {
 
         lightbox.classList.remove("show");
