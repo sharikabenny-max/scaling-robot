@@ -60,68 +60,6 @@ if (lightbox && lightboxImg && imageWrapper) {
         lightboxPdf.style.display = "none";
     }
 
-   // ============================================================
-// Shared site behavior: nav toggle, lightbox, filters, forms
-// ============================================================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    // ========================================================
-    // LIGHTBOX
-    // ========================================================
-
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const imageWrapper = document.querySelector(".lightbox-image");
-const lightboxTitle = document.getElementById("lightbox-title");
-const lightboxMeta = document.getElementById("lightbox-meta");
-const lightboxDesc = document.getElementById("lightbox-desc");
-const lightboxPdf = document.getElementById("lightbox-pdf");
-
-if (lightbox && lightboxImg && imageWrapper) {
-
-    const links = [...document.querySelectorAll(".lightbox-link")];
-
-    const nextBtn = document.querySelector(".lightbox-next");
-    const prevBtn = document.querySelector(".lightbox-prev");
-    const closeBtn = document.querySelector(".lightbox-close");
-
-   const panzoom = Panzoom(lightboxImg, {
-    maxScale: 5,
-    contain: "outside"
-});
-
-    imageWrapper.addEventListener(
-        "wheel",
-        panzoom.zoomWithWheel
-    );
-
-    let currentIndex = 0;
-
-    function showImage(index) {
-
-    currentIndex = index;
-
-    const link = links[index];
-    const card = link.closest(".pin-card");
-
-    lightboxImg.src = link.href;
-    lightboxImg.alt = card.dataset.title || "Artwork";
-
-    // Caption
-    lightboxTitle.textContent = card.dataset.title || "";
-    lightboxMeta.textContent = card.dataset.meta || "";
-    lightboxDesc.textContent = card.dataset.desc || "";
-
-    // PDF button
-    if (card.dataset.pdf) {
-        lightboxPdf.href = card.dataset.pdf;
-        lightboxPdf.style.display = "inline-flex";
-    } else {
-        lightboxPdf.style.display = "none";
-    }
-
     lightbox.classList.add("show");
 
     panzoom.reset();
