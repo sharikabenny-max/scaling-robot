@@ -50,7 +50,12 @@ if (lightbox && lightboxImg && imageWrapper) {
     // Caption
     lightboxTitle.textContent = card.dataset.title || "";
     lightboxMeta.textContent = card.dataset.meta || "";
-    lightboxDesc.textContent = card.dataset.desc || "";
+    if (card.dataset.desc) {
+    lightboxDesc.textContent = card.dataset.desc;
+    lightboxDesc.style.display = "block";
+    } else {
+    lightboxDesc.style.display = "none";
+    }
 
     // PDF button
     if (card.dataset.pdf) {
