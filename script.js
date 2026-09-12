@@ -47,33 +47,36 @@ if (lightbox && lightboxImg && imageWrapper) {
     lightboxImg.src = link.href;
     lightboxImg.alt = card.dataset.title || "Artwork";
 
-    // Caption
-    lightboxTitle.textContent = card.dataset.title || "";
-    lightboxMeta.textContent = card.dataset.meta || "";
-    if (card.dataset.desc) {
-    lightboxDesc.textContent = card.dataset.desc;
-    lightboxDesc.style.display = "block";
-    } else {
-    lightboxDesc.style.display = "none";
-    }
+   // Caption (only if those elements exist)
+if (lightboxTitle) lightboxTitle.textContent = card?.dataset.title || "";
+if (lightboxMeta) lightboxMeta.textContent = card?.dataset.meta || "";
 
-    // PDF button
-    if (card.dataset.pdf) {
+if (lightboxPdf) {
+    if (card?.dataset.pdf) {
         lightboxPdf.href = card.dataset.pdf;
         lightboxPdf.style.display = "inline-flex";
     } else {
         lightboxPdf.style.display = "none";
     }
+}
 
+if (lightboxPdf) {
+    if (card?.dataset.pdf) {
+        lightboxPdf.href = card.dataset.pdf;
+        lightboxPdf.style.display = "inline-flex";
+    } else {
+        if (lightboxPdf) lightboxPdf.style.display = "none";
+    }
+}
     lightbox.classList.add("show");
 
     panzoom.reset();
 }
-    function closeLightbox() {
+   function closeLightbox() {
 
     lightbox.classList.remove("show");
 
-    lightboxPdf.style.display = "none";
+    if (lightboxPdf) lightboxPdf.style.display = "none";
 
     panzoom.reset();
 
