@@ -45,7 +45,7 @@ content="Portfolio of Sharika Benny, an illustrator and comic artist creating ch
       </div>
       <div style="position:relative; height:420px;">
         <!-- Pinned collage -->
-        <div class="pin-card" style="position:absolute; width:220px; top:0; left:10%;">
+        <div class="pin-card" style="position:absolute; width:220px; top:0; left:10%;" data-title="Storefront" data-meta="Digital · 2026">
           <span class="tape"></span>
          <div class="art-thumb">
           <a href="house.jpeg" class="lightbox-link">
@@ -55,7 +55,7 @@ content="Portfolio of Sharika Benny, an illustrator and comic artist creating ch
           <div class="pin-title">Storefront</div>
           <div class="pin-meta">Digital · 2026</div>
         </div>
-        <div class="pin-card" style="position:absolute; width:190px; top:150px; left:48%;">
+        <div class="pin-card" style="position:absolute; width:190px; top:150px; left:48%;" data-title="Fan Art" data-meta="Digital · 2025">
           <span class="tape"></span>
           <div class="art-thumb">
              <a href="sonic.jpg" class="lightbox-link">
@@ -65,7 +65,7 @@ content="Portfolio of Sharika Benny, an illustrator and comic artist creating ch
           <div class="pin-title">Fan Art</div>
           <div class="pin-meta">Digital · 2025</div>
         </div>
-        <div class="pin-card" style="position:absolute; width:170px; top:20px; left:65%;">
+        <div class="pin-card" style="position:absolute; width:170px; top:20px; left:65%;" data-title="Cooking Comic" data-meta="Digital · 2026">
           <span class="tape"></span>
           <div class="art-thumb">
             <a href="cooking.jpeg" class="lightbox-link">
@@ -90,7 +90,7 @@ content="Portfolio of Sharika Benny, an illustrator and comic artist creating ch
     </div>
     <div class="grid-4">
 
-       <div class="pin-card">
+       <div class="pin-card" data-title="Memory" data-meta="Comic · Illustration">
         <span class="tape"></span>
         <div class="art-thumb">
          <a href="memory p3.jpg" class="lightbox-link">
@@ -101,7 +101,7 @@ content="Portfolio of Sharika Benny, an illustrator and comic artist creating ch
         <div class="pin-meta">Comic · Illustration</div>
       </div>
 
-       <div class="pin-card">
+       <div class="pin-card" data-title="Flower Walk" data-meta="Illustration">
         <span class="tape"></span>
         <div class="art-thumb">
          <a href="Flower Walk 2.jpg" class="lightbox-link">
@@ -112,7 +112,7 @@ content="Portfolio of Sharika Benny, an illustrator and comic artist creating ch
         <div class="pin-meta">Illustration</div>
       </div>
       
-      <div class="pin-card">
+      <div class="pin-card" data-title="Comic" data-meta="Illustration">
         <span class="tape"></span>
         <div class="art-thumb">
            <a href="comic3.jpg" class="lightbox-link">
@@ -123,7 +123,7 @@ content="Portfolio of Sharika Benny, an illustrator and comic artist creating ch
         <div class="pin-meta">Illustration</div>
       </div>
       
-      <div class="pin-card">
+      <div class="pin-card" data-title="Caught to say Hello" data-meta="Digital · Procreate">
         <span class="tape"></span>
         <div class="art-thumb">
           <a href="house2.jpeg" class="lightbox-link">
@@ -294,8 +294,31 @@ content="Portfolio of Sharika Benny, an illustrator and comic artist creating ch
 
         <button class="lightbox-prev">&#10094;</button>
 
-        <div class="lightbox-image">
-            <img id="lightbox-img" src="" alt="Artwork">
+        <div class="lightbox-scroll">
+
+            <div class="lightbox-image">
+                <img id="lightbox-img" src="" alt="Artwork">
+            </div>
+
+            <div class="lightbox-caption">
+
+                <h3 id="lightbox-title"></h3>
+
+                <p id="lightbox-meta"></p>
+
+                <p id="lightbox-desc"></p>
+
+                <a id="lightbox-pdf"
+                   class="pdf-link"
+                   href="#"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="display:none;">
+                    📄 View Full Comic
+                </a>
+
+            </div>
+
         </div>
 
         <button class="lightbox-next">&#10095;</button>
