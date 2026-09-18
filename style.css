@@ -439,8 +439,21 @@ footer .foot-bottom {
     background:white;
     border-radius:28px;
 
+    overflow:visible; /* let the prev/next/close buttons hang outside */
+}
+
+/* Scrolling now happens on this inner wrapper instead of .lightbox-inner,
+   so mixing overflow-y:auto with overflow-x:visible on the same box
+   (which browsers silently force to auto/auto, clipping the buttons)
+   is avoided. */
+.lightbox-scroll{
+    width:100%;
+    max-height:calc(92vh - 40px);
     overflow-y:auto;
-    overflow-x:visible; /* arrows can stick out */
+    overflow-x:hidden;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
 .lightbox-image{
@@ -585,7 +598,11 @@ footer .foot-bottom {
 
     max-height:90vh;
 
-    overflow-y:auto;
+}
+
+.lightbox-scroll{
+
+    max-height:calc(90vh - 40px);
 
 }
 
