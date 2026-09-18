@@ -405,221 +405,219 @@ footer .foot-bottom {
    LIGHTBOX
    ========================================================= */
 
-.lightbox{
-    position:fixed;
-    inset:0;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    padding:50px;
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(6px);
-    z-index:9999;
+.lightbox {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(6px);
+
+    z-index: 9999;
 }
 
-.lightbox.show{
-    display:flex;
+.lightbox.show {
+    display: flex;
 }
 
-.lightbox-inner{
-    position:relative;
+.lightbox-inner {
+    position: relative;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    width:fit-content;
-    height:fit-content;
+    width: fit-content;
+    max-width: 90vw;
+    max-height: 92vh;
 
-    max-width:88vw;
-    max-height:92vh;
+    padding: 20px;
 
-    padding:20px;
+    background: white;
+    border-radius: 28px;
 
-    background:white;
-    border-radius:28px;
-
-    overflow-y:auto;
-    overflow-x:visible; /* arrows can stick out */
+    /*
+       Allow the image to determine the card width.
+       Don't clip the navigation buttons.
+    */
+    overflow: visible;
 }
 
-.lightbox-image{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.lightbox-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 100%;
 }
 
-#lightbox-img{
-    display:block;
-    width:auto;
-    height:auto;
+#lightbox-img {
+    display: block;
 
-    max-width:calc(88vw - 40px);
-    max-height:calc(92vh - 170px);
+    width: auto;
+    height: auto;
 
-    object-fit:contain;
+    max-width: calc(90vw - 40px);
+    max-height: 72vh;
+
+    object-fit: contain;
 }
 
-.lightbox-caption{
-    width:100%;
-    max-width:720px;
+.lightbox-caption {
+    width: 100%;
+    max-width: 720px;
 
-    margin-top:30px;
+    margin-top: 30px;
 
-    text-align:center;
+    text-align: center;
 }
 
-.lightbox-sidebar{
-    width:100%;
-    max-width:720px;
+.lightbox-sidebar {
+    width: 100%;
+    max-width: 720px;
 }
 
-#lightbox-title{
-    margin-bottom:10px;
+#lightbox-title {
+    margin-bottom: 10px;
 }
 
-#lightbox-meta{
-    color:var(--ink-soft);
-    margin-bottom:24px;
+#lightbox-meta {
+    color: var(--ink-soft);
+    margin-bottom: 24px;
 
-    font-family:var(--font-label);
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    font-size:.8rem;
+    font-family: var(--font-label);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .8rem;
 }
 
-#lightbox-desc{
-    line-height:1.8;
-    margin-bottom:25px;
+#lightbox-desc {
+    line-height: 1.8;
+    margin-bottom: 25px;
 }
 
-.pdf-link{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
+.pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 
-    padding:14px 28px;
+    padding: 14px 28px;
 
-    border-radius:999px;
+    border-radius: 999px;
 
-    background:var(--ink);
-    color:white;
+    background: var(--ink);
+    color: white;
 
-    font-weight:600;
+    font-weight: 600;
 
-    transition:.25s;
+    transition: .25s;
 }
 
-.pdf-link:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 24px rgba(0,0,0,.18);
+.pdf-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.18);
 }
-.lightbox-close{
 
-    position:absolute;
+/* Close button */
 
-    top:-18px;
-    right:-18px;
+.lightbox-close {
+    position: absolute;
 
-    width:48px;
-    height:48px;
+    top: -18px;
+    right: -18px;
 
-    border:none;
+    width: 48px;
+    height: 48px;
 
-    border-radius:50%;
+    border: none;
+    border-radius: 50%;
 
-    background:white;
+    background: white;
 
-    font-size:28px;
+    font-size: 28px;
+    cursor: pointer;
 
-    cursor:pointer;
-
-    z-index:10;
-
+    z-index: 20;
 }
+
+/* Navigation arrows */
 
 .lightbox-prev,
-.lightbox-next{
+.lightbox-next {
+    position: absolute;
 
-    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
 
-    top:50%;
+    width: 56px;
+    height: 56px;
 
-    transform:translateY(-50%);
+    border: none;
+    border-radius: 50%;
 
-    width:56px;
-    height:56px;
+    background: rgba(255,255,255,.96);
 
-    border:none;
+    font-size: 28px;
+    cursor: pointer;
 
-    border-radius:50%;
-
-    background:rgba(255,255,255,.96);;
-
-    font-size:28px;
-
-    cursor:pointer;
-
-    z-index:10;
-
+    z-index: 20;
 }
 
-.lightbox-prev{
-    left:-76px;
+.lightbox-prev {
+    left: -76px;
 }
 
-.lightbox-next{
-    right:-76px;
+.lightbox-next {
+    right: -76px;
 }
 
-/* Mobile */
+/* =========================================================
+   LIGHTBOX — MOBILE
+   ========================================================= */
 
-@media (max-width:900px){
+@media (max-width: 900px) {
 
-.lightbox-inner{
+    .lightbox {
+        padding: 20px;
+    }
 
-    flex-direction:column;
+    .lightbox-inner {
+        width: 95vw;
+        max-width: 95vw;
+        max-height: 90vh;
 
-    width:95vw;
+        padding: 20px;
 
-    max-height:90vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 
-    overflow-y:auto;
+    .lightbox-sidebar {
+        width: 100%;
+    }
 
-}
+    #lightbox-img {
+        max-width: 100%;
+        max-height: 60vh;
+    }
 
-.lightbox-sidebar{
+    .lightbox-prev {
+        left: 10px;
+    }
 
-    width:100%;
+    .lightbox-next {
+        right: 10px;
+    }
 
-}
-
-.lightbox-prev{
-
-    left:10px;
-
-}
-
-.lightbox-next{
-
-    right:10px;
-
-}
-
-.lightbox-close{
-
-    top:10px;
-    right:10px;
-
-}
-
-#lightbox-img{
-
-    max-height:60vh;
-
-}
-
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+    }
 }
 
 /* =========================================================
