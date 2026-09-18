@@ -439,7 +439,8 @@ footer .foot-bottom {
     background:white;
     border-radius:28px;
 
-    overflow:visible;
+    overflow-y:auto;
+    overflow-x:visible; /* arrows can stick out */
 }
 
 .lightbox-image{
@@ -455,7 +456,7 @@ footer .foot-bottom {
     height:auto;
 
     max-width:calc(88vw - 40px);
-    max-height:calc(92vh - 40px);
+    max-height:calc(92vh - 170px);
 
     object-fit:contain;
 }
